@@ -34,11 +34,15 @@
 }
 
 .logoIcon {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   background: var(--color-green);
-  border-radius: 6px;
-  display: inline-block;
+  color: #ffffff; /* Sets the stroke color of lucide icons */
+  border-radius: 8px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav {

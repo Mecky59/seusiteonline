@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LayoutTemplate } from 'lucide-react';
 import styles from './Header.module.css';
 
 export default function Header() {
@@ -18,7 +18,7 @@ export default function Header() {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.container}`}>
         <div className={styles.logo}>
-          <span className={styles.logoIcon}></span>
+          <LayoutTemplate className={styles.logoIcon} />
           Seu Site Online
         </div>
         
