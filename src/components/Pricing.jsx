@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react';
+import { Check, MessageCircle } from 'lucide-react';
 import styles from './Pricing.module.css';
 
 const plans = [
@@ -99,6 +99,16 @@ export default function Pricing({ onSelectPlan }) {
               >
                 Assinar Agora
               </button>
+              
+              <a 
+                href={`https://wa.me/5511999999999?text=${encodeURIComponent(`Olá! Quero tirar dúvidas sobre o ${plan.name} antes de assinar.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactBtn}
+              >
+                <MessageCircle size={16} style={{ marginRight: '6px' }} />
+                Conversar com o time antes
+              </a>
             </div>
           ))}
         </div>

@@ -9,7 +9,7 @@ export default function Cart({ selectedPlanId, selectedExtras, onSelectPlan, onT
   
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
 
-  const selectedPlan = PLANS.find(p => p.id === selectedPlanId) || PLANS[1]; // default to profissional
+  const selectedPlan = PLANS.find(p => p.id === selectedPlanId) || { id: 'nenhum', name: 'Nenhum plano selecionado', price: 0 };
   const selectedExtrasData = selectedExtras.map(id => EXTRAS_LIST.find(e => e.id === id));
   
   const total = selectedPlan.price + selectedExtrasData.reduce((acc, extra) => acc + extra.price, 0);
@@ -21,6 +21,11 @@ export default function Cart({ selectedPlanId, selectedExtras, onSelectPlan, onT
   const handleCheckout = async () => {
     if (!formData.name || !formData.email || !formData.phone) {
       alert('Por favor, preencha todos os seus dados antes de continuar.');
+      return;
+    }
+    
+    if (total === 0) {
+      alert('Por favor, selecione pelo menos um plano ou recurso extra para assinar.');
       return;
     }
 
@@ -65,6 +70,13 @@ export default function Cart({ selectedPlanId, selectedExtras, onSelectPlan, onT
                     <span className={styles.planPrice}>R$ {plan.price}</span>
                   </button>
                 ))}
+                <button
+                  className={`${styles.planBtn} ${selectedPlanId === 'nenhum' ? styles.planActive : ''}`}
+                  onClick={() => onSelectPlan('nenhum')}
+                >
+                  <span>Apenas Recursos Extras (Sem Site)</span>
+                  <span className={styles.planPrice}>R$ 0</span>
+                </button>
               </div>
             </div>
 
