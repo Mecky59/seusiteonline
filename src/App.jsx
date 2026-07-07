@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Niches from './components/Niches';
 import HowItWorks from './components/HowItWorks';
 import Pricing from './components/Pricing';
 import Extras from './components/Extras';
@@ -55,6 +56,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Niches />
         <HowItWorks />
         <Pricing onSelectPlan={setSelectedPlanId} />
         <Extras selectedExtras={selectedExtras} onToggleExtra={toggleExtra} />

@@ -1,4 +1,4 @@
-import { Globe, Mail, MessageCircle } from 'lucide-react';
+import { Globe, Mail, MessageCircle, LayoutTemplate } from 'lucide-react';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -7,7 +7,7 @@ export default function Footer() {
       <div className={`container ${styles.container}`}>
         <div className={styles.brandInfo}>
           <div className={styles.logo}>
-            <span className={styles.logoIcon}></span>
+            <LayoutTemplate className={styles.logoIcon} />
             Seu Site Online
           </div>
           <p className={styles.description}>

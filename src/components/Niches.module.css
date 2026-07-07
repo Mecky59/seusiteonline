@@ -1,0 +1,85 @@
+.section {
+  padding: 4rem 0;
+  background-color: var(--color-gray-light);
+  border-bottom: 1px solid var(--color-gray-medium);
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+/* Gradient fades on left and right for smooth marquee entrance/exit */
+.marqueeContainer::before,
+.marqueeContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marqueeContainer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-gray-light) 0%, transparent 100%);
+}
+
+.marqueeContainer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-gray-light) 0%, transparent 100%);
+}
+
+.marquee {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  animation: scroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+.nicheBadge {
+  background-color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-black);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-gray-medium);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.nicheBadge:hover {
+  border-color: var(--color-green);
+  color: var(--color-green);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translates by half of the content since we duplicated the items in the array to create an infinite loop effect */
+    transform: translateX(-50%);
+  }
+}
