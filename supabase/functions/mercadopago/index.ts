@@ -54,9 +54,7 @@ serve(async (req) => {
         throw new Error('Dados incompletos para assinatura');
       }
 
-      // TODO: Aqui entra a integração real com a API do Mercado Pago
-      // Exemplo de payload para a API do Mercado Pago (Preapproval):
-      /*
+      // Integração real com a API do Mercado Pago (Preapproval):
       const mpResponse = await fetch('https://api.mercadopago.com/preapproval', {
         method: 'POST',
         headers: {
@@ -64,25 +62,27 @@ serve(async (req) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          reason: `Assinatura - ${planId}`,
+          reason: `Assinatura - Seu Site Online (${planId})`,
           auto_recurring: {
             frequency: 1,
             frequency_type: 'months',
             transaction_amount: totalAmount,
             currency_id: 'BRL'
           },
-          back_url: 'https://seusiteonline.com.br/sucesso',
+          back_url: 'https://seusiteonline-5qp26ho4t-melquis-projects-eaca9654.vercel.app/',
           payer_email: email
         })
       });
+      
       const mpData = await mpResponse.json();
+      
+      if (!mpResponse.ok) {
+        console.error('Erro no Mercado Pago:', mpData);
+        throw new Error('Falha ao gerar o link de pagamento no Mercado Pago');
+      }
+
       const initPoint = mpData.init_point;
       const preapprovalId = mpData.id;
-      */
-
-      // Mock temporário enquanto não tem a chave real:
-      const initPoint = 'https://www.mercadopago.com.br/subscriptions/mock';
-      const preapprovalId = 'mock_' + Math.random().toString(36).substring(7);
 
       // Salva no banco de dados do Supabase
       const { data: insertedData, error: dbError } = await supabaseClient
