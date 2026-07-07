@@ -62,6 +62,11 @@ export default function Pricing({ onSelectPlan }) {
         <div className={styles.header}>
           <h2 className={styles.title}>Planos que cabem no seu bolso</h2>
           <p className={styles.subtitle}>Escolha a melhor opção para colocar seu negócio na internet.</p>
+          
+          <div className={styles.trustBadge}>
+            <span className={styles.trustIcon}>⭐</span>
+            <p><strong>Nosso Compromisso:</strong> Todos os sites são entregues <strong>100% completos e profissionais</strong>, independente do plano que você escolher.</p>
+          </div>
         </div>
 
         <div className={styles.grid}>
