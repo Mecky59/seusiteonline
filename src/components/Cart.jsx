@@ -7,18 +7,29 @@ import styles from './Cart.module.css';
 export default function Cart({ selectedPlanId, selectedExtras, onSelectPlan, onToggleExtra }) {
   const [isLoading, setIsLoading] = useState(false);
   
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
+
   const selectedPlan = PLANS.find(p => p.id === selectedPlanId) || PLANS[1]; // default to profissional
   const selectedExtrasData = selectedExtras.map(id => EXTRAS_LIST.find(e => e.id === id));
   
   const total = selectedPlan.price + selectedExtrasData.reduce((acc, extra) => acc + extra.price, 0);
 
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const handleCheckout = async () => {
+    if (!formData.name || !formData.email || !formData.phone) {
+      alert('Por favor, preencha todos os seus dados antes de continuar.');
+      return;
+    }
+
     setIsLoading(true);
     try {
       // Chamando o serviço mockado para gerar a URL de pagamento
       const response = await createSubscription(
         { planId: selectedPlanId, extras: selectedExtras, totalAmount: total },
-        { name: 'Cliente Teste', email: 'teste@email.com' } // Em produção, coletaríamos isso num form antes
+        formData
       );
       
       // Redireciona o usuário (simulação)
@@ -80,6 +91,39 @@ export default function Cart({ selectedPlanId, selectedExtras, onSelectPlan, onT
                     </label>
                   );
                 })}
+              </div>
+            </div>
+
+            <div className={styles.step}>
+              <h3>3. Seus Dados</h3>
+              <div className={styles.formGroup}>
+                <input 
+                  type="text" 
+                  name="name" 
+                  placeholder="Nome Completo" 
+                  value={formData.name} 
+                  onChange={handleInputChange} 
+                  className={styles.input}
+                  required
+                />
+                <input 
+                  type="email" 
+                  name="email" 
+                  placeholder="E-mail" 
+                  value={formData.email} 
+                  onChange={handleInputChange} 
+                  className={styles.input}
+                  required
+                />
+                <input 
+                  type="tel" 
+                  name="phone" 
+                  placeholder="WhatsApp" 
+                  value={formData.phone} 
+                  onChange={handleInputChange} 
+                  className={styles.input}
+                  required
+                />
               </div>
             </div>
           </div>
