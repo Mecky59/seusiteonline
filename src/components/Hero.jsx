@@ -36,7 +36,7 @@ export default function Hero() {
           </ul>
 
           <div className={`${styles.actions} animate-fade-in delay-300`}>
-            <a href="#assinar" className="btn-primary">Quero Assinar</a>
+            <a href="#planos" className="btn-primary">Quero Assinar</a>
             <a href="#planos" className="btn-secondary">Ver Planos</a>
           </div>
         </div>

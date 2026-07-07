@@ -31,7 +31,7 @@ export default function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <a href="#assinar" className="btn-primary">Assinar Agora</a>
+          <a href="#planos" className="btn-primary">Assinar Agora</a>
           <button className={styles.mobileToggle} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>

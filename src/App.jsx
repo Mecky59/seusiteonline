@@ -10,6 +10,7 @@ import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   const [selectedPlanId, setSelectedPlanId] = useState('profissional');
@@ -68,6 +69,7 @@ function App() {
         <FAQ />
         <FinalCTA />
       </main>
+      <WhatsAppButton />
       <Footer />
     </>
   );

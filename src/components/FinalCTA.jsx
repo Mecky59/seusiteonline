@@ -10,7 +10,7 @@ export default function FinalCTA() {
           <p className={styles.text}>
             Assine agora e deixe toda a parte técnica conosco enquanto você cuida do crescimento do seu negócio.
           </p>
-          <a href="#monte-sua-assinatura" className={`btn-primary ${styles.btn}`}>
+          <a href="#planos" className={`btn-primary ${styles.btn}`}>
             Quero Meu Site <ArrowRight size={20} />
           </a>
         </div>
