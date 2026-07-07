@@ -3,7 +3,7 @@ import styles from './WhatsAppButton.module.css';
 
 export default function WhatsAppButton() {
   // Substitua pelo número real do WhatsApp
-  const whatsappNumber = "5511999999999"; 
+  const whatsappNumber = "5575982448129"; 
   const message = encodeURIComponent("Olá! Gostaria de falar com o desenvolvedor sobre o projeto Seu Site Online.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 

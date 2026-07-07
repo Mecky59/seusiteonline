@@ -106,7 +106,7 @@ export default function Pricing({ onSelectPlan }) {
               </button>
               
               <a 
-                href={`https://wa.me/5511999999999?text=${encodeURIComponent(`Olá! Quero tirar dúvidas sobre o ${plan.name} antes de assinar.`)}`}
+                href={`https://wa.me/5575982448129?text=${encodeURIComponent(`Olá! Quero tirar dúvidas sobre o ${plan.name} antes de assinar.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.contactBtn}
